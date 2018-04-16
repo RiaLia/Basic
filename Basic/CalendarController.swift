@@ -19,6 +19,7 @@ class CalendarController: UIViewController {
         super.viewDidLoad()
         
         title = getTitle()
+        setupDayCollection()
         
         /*
         let year = calendar.component(.year, from: date)
@@ -57,8 +58,8 @@ class CalendarController: UIViewController {
     
     func setupDayCollection() {
         let cells = dayCollection.visibleCells
-        for day in 1...35 {
-            if day > getFirstWeekDay() && day < getDaysInMonth() {
+        for day in 1...37 {
+            if day > getFirstWeekDay() && day < getDaysInMonth() + getFirstWeekDay() - 1 {
                 let cell = cells[day]
                 let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.height/2))
                 title.textColor = UIColor.black
